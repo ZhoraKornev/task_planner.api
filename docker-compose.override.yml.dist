@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+    db:
+        ports:
+            - "2356:3306"
+    nginx:
+        ports:
+            - "7820:80"
+#    RABBIT PORT for web ui
+    rabbitmq:
+        ports:
+            - "15147:15672"
+

@@ -7,6 +7,10 @@ use ApiPlatform\Doctrine\Orm\Filter\DateFilter;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use App\Repository\TaskRepository;
 use Carbon\Carbon;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -21,6 +25,12 @@ use Symfony\Component\Validator\Constraints as Assert;
     shortName: 'task',
     description: 'Todo task related to user.
 Будь-яке задача може мати підзадачі  рівень вкладеності підзадач має бути необмежений.',
+    operations: [
+        new Put(security: "is_granted('ROLE_ADMIN') or object.owner == user"),
+        new Post(security: "is_granted('ROLE_ADMIN')"),
+        new Get(),
+        new GetCollection(),
+        ],
     normalizationContext: ['groups' => 'task:read'],
     denormalizationContext: ['groups' => 'task:write'],
     paginationItemsPerPage: 10,

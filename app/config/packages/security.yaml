@@ -24,7 +24,6 @@ security:
                 check_path: app_login
                 username_path: email
                 password_path: password
-
         main:
             custom_authenticators:
                 - App\Security\ApiTokenAuthenticator
@@ -39,6 +38,7 @@ security:
 
 
     access_control:
+        - { path: ^/api_documentation, roles: PUBLIC_ACCESS }
         - { path: ^/login, roles: PUBLIC_ACCESS }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
 

@@ -71,7 +71,11 @@ Happy coding! 🚀
 
 
 
-## Tests
+## Helpful docs
+
+Open api 3 ready.
+You can find all docs and endpoints in http://localhost/api_documentation section
+![api docs](docs/api_docs.png)
 
 
 

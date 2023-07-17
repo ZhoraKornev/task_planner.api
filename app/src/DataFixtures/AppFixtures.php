@@ -26,6 +26,7 @@ class AppFixtures extends Fixture
         $user->setEmail(self::TEST_USER_EMAIL);
         $tmpPwd = $this->passwordHasher->hashPassword($user, self::TEST_USER_PASS);
         $user->setPassword($tmpPwd);
+        $user->setRoles(['ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN']);
         $manager->persist($user);
 
         UserFactory::createMany(10);

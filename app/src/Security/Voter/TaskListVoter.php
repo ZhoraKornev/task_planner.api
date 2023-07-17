@@ -10,11 +10,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class TaskListVoter extends Voter
 {
+    public const EDIT = 'EDIT';
+    public const VIEW = 'VIEW';
     public function __construct(private readonly AuthorizationCheckerInterface $security)
     {
     }
-    public const EDIT = 'POST_EDIT';
-    public const VIEW = 'POST_VIEW';
 
     protected function supports(string $attribute, mixed $subject): bool
     {
